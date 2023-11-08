@@ -28,9 +28,9 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  //   useEffect(() => {
-  //     handleThemeChange();
-  //   }, [mode]);
+  useEffect(() => {
+    handleThemeChange();
+  }, [mode]);
 
   const value = {
     mode,
