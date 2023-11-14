@@ -30,6 +30,9 @@ body {
   .markdown {
     @apply max-w-full prose dark:prose-p:text-light-700 dark:pros;
   }
+  .no-focus {
+    @apply focus-visible:ring-0 focus-visible:ring-transparent focus;
+  }
   .primary-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
   }
@@ -42,9 +45,6 @@ body {
   }
   .tab {
     @apply min-h-full dark:bg-dark-400 bg-light-800 text-light-5;
-  }
-  .no-focus {
-    @apply focus-visible:ring-0 focus-visible:ring-transparent focus;
   }
 }
 
@@ -89,6 +89,8 @@ code {
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
+  word-break: break-all;
+  /* Instead use this non-standard one: */
   word-break: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
