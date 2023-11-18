@@ -29,7 +29,7 @@ function Theme() {
                 : "/assets/icons/moon.svg"
             }
             alt={mode === "light" ? "sun" : "moon"}
-            className="active-theme"
+            className="active-theme "
             width={20}
             height={20}
           />
@@ -57,7 +57,7 @@ function Theme() {
                 height={16}
                 className={`${
                   mode === item.value && "active-theme"
-                } fill-white`}
+                } invert-colors`}
               />
 
               <p

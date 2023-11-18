@@ -30,9 +30,6 @@ body {
   .markdown {
     @apply max-w-full prose dark:prose-p:text-light-700 dark:pros;
   }
-  .no-focus {
-    @apply focus-visible:ring-0 focus-visible:ring-transparent focus;
-  }
   .primary-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
   }
@@ -127,4 +124,8 @@ code {
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.focus-visible\:ring-offset-2:focus-visible {
+  --tw-ring-offset-width: 0px !important;
 }

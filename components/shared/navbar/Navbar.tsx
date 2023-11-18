@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
+import MobileNav from "./MobileNav";
+import GlobalSearch from "../search/GlobalSearch";
 
 export default function Navbar() {
   return (
@@ -21,9 +23,10 @@ export default function Navbar() {
         </p>
       </Link>
 
+      <GlobalSearch />
+
       <div className="flex-between gap-5">
         <Theme />
-
         <SignedIn>
           <UserButton
             afterSignOutUrl="/"
@@ -37,6 +40,8 @@ export default function Navbar() {
             }}
           />
         </SignedIn>
+
+        <MobileNav />
       </div>
     </nav>
   );
