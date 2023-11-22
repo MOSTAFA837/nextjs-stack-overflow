@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import RenderTag from "./RenderTag";
 
-const popularTags = [
+export const popularTags = [
   { _id: 1, name: "javascript", totalQuestions: 5 },
   { _id: 2, name: "react", totalQuestions: 10 },
   { _id: 3, name: "next", totalQuestions: 3 },
