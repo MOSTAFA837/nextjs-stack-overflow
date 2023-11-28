@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { QuestionSchema } from "@/lib/validations";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
+import { createQuestion } from "@/actions/question.action";
 
 const type: any = "create";
 
@@ -27,7 +28,7 @@ export default function Question() {
   const editorRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.z.infer<typeof QuestionSchema>>({
+  const form = useForm<z.infer<typeof QuestionSchema>>({
     resolver: zodResolver(QuestionSchema),
     defaultValues: {
       title: "",
@@ -36,11 +37,11 @@ export default function Question() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof QuestionSchema>) {
+  async function onSubmit(values: z.infer<typeof QuestionSchema>) {
     setIsSubmitting(true);
 
     try {
-      //
+      await createQuestion({});
     } catch (error) {
       //
     } finally {
@@ -132,6 +133,8 @@ export default function Question() {
                     (editorRef.current = editor)
                   }
                   initialValue=""
+                  onBlur={field.onBlur}
+                  onEditorChange={(content) => field.onChange(content)}
                   init={{
                     height: 350,
                     menubar: false,
