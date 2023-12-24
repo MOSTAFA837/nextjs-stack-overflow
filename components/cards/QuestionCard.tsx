@@ -68,21 +68,24 @@ export default function QuestionCard({
           <Metric
             imgUrl="/assets/icons/like.svg"
             alt="Upvotes"
-            value={formatAndDividNumber(upvotes)}
+            value={upvotes.length}
+            // value={formatAndDividNumber(upvotes)}
             title=" Votes"
             textStyles="small-medium text-dark400_light800"
           />
           <Metric
             imgUrl="/assets/icons/comment.svg"
             alt="messages"
-            value={formatAndDividNumber(answers.length)}
+            // value={formatAndDividNumber(answers.length)}
+            value={answers.length}
             title=" Answers"
             textStyles="small-medium text-dark400_light800"
           />
           <Metric
             imgUrl="/assets/icons/view.svg"
             alt="eye"
-            value={formatAndDividNumber(views)}
+            // value={formatAndDividNumber(views)}
+            value={views}
             title="Views"
             textStyles="small-medium text-dark400_light800"
           />
