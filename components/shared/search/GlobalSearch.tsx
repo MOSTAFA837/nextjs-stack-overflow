@@ -17,7 +17,6 @@ export default function GlobalSearch() {
         <Input
           type="text"
           placeholder="Search globaly.."
-          value=""
           className="paragraph-regular placeholder background-light800_darkgradient "
         />
       </div>
