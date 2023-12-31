@@ -1,27 +1,35 @@
 import mongoose from "mongoose";
 
-let isConnected: boolean = false;
-
-export const connectToDatabase = async () => {
-  mongoose.set("strictQuery", true);
-
-  if (!process.env.MONGODB_URL) {
-    return console.log("misssing mongodb url.");
-  }
-
-  if (isConnected) {
-    return console.log("mongodb is already connected.");
-  }
-
+export async function connectToDatabase() {
   try {
-    await mongoose.connect(process.env.MONGODB_URL, {
-      dbName: "stackoverflow",
+    await mongoose.connect(process.env.MONGODB_URL!);
+
+    const connection = mongoose.connection;
+
+    connection.on("connected", () => {
+      console.log("mongodb connected successfully");
     });
 
-    isConnected = true;
-
-    console.log("mongodb is connected");
+    connection.on("error", (error) => {
+      console.log(error);
+    });
   } catch (error) {
-    console.log("mongodb connection failded", error);
+    console.log(error);
   }
-};
+}
+
+// let isConnected = false;
+
+// export const connectToDatabase = async () => {
+//   mongoose.set("strictQuery", true);
+
+//   if (!process.env.MONGODB_URL) return console.log("MONGODB_URL not found");
+//   if (isConnected) return console.log("Already connected to MongoDB");
+
+//   try {
+//     await mongoose.connect(process.env.MONGODB_URL);
+//     isConnected = true;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
