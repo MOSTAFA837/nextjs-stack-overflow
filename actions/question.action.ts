@@ -12,9 +12,11 @@ export async function getQuestions(params: GetQuestionsParams) {
     connectToDatabase();
 
     const questions = await Question.find({})
+      .maxTimeMS(30000)
       .populate({ path: "tags", model: Tag })
       .populate({ path: "author", model: User })
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .exec();
 
     return { questions };
   } catch (error) {
