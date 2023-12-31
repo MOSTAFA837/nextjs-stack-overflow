@@ -68,7 +68,7 @@ export default function QuestionCard({
           <Metric
             imgUrl="/assets/icons/like.svg"
             alt="Upvotes"
-            value={upvotes.length}
+            value={upvotes}
             // value={formatAndDividNumber(upvotes)}
             title=" Votes"
             textStyles="small-medium text-dark400_light800"
