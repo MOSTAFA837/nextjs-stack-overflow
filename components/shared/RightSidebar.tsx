@@ -4,11 +4,11 @@ import Image from "next/image";
 import RenderTag from "./RenderTag";
 
 export const popularTags = [
-  { _id: 1, name: "javascript", totalQuestions: 5 },
-  { _id: 2, name: "react", totalQuestions: 10 },
-  { _id: 3, name: "next", totalQuestions: 3 },
-  { _id: 4, name: "php", totalQuestions: 7 },
-  { _id: 5, name: "laravel", totalQuestions: 6 },
+  { _id: "1", name: "javascript", totalQuestions: 5 },
+  { _id: "2", name: "react", totalQuestions: 10 },
+  { _id: "3", name: "next", totalQuestions: 3 },
+  { _id: "4", name: "php", totalQuestions: 7 },
+  { _id: "5", name: "laravel", totalQuestions: 6 },
 ];
 
 export default function RightSidebar() {
