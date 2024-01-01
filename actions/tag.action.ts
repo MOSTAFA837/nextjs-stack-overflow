@@ -1,8 +1,8 @@
 "use server";
 
-import console from "console";
-import { GetTopInteractedTagsParams } from "./shared.types";
+import { GetAllTagsParams, GetTopInteractedTagsParams } from "./shared.types";
 import { connectToDatabase } from "@/lib/mongoose";
+import { Tag } from "@/models/tag.model";
 import { User } from "@/models/user.model";
 
 export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
@@ -24,6 +24,19 @@ export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
       { _id: "2", name: "Next.js" },
       { _id: "3", name: "Redux" },
     ];
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export async function getAllTags(params: GetAllTagsParams) {
+  try {
+    connectToDatabase();
+
+    const tags = await Tag.find({});
+
+    return { tags };
   } catch (error) {
     console.log(error);
     throw error;
