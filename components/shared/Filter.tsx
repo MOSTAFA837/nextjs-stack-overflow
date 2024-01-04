@@ -34,7 +34,7 @@ export default function Filter({
           </div>
         </SelectTrigger>
 
-        <SelectContent>
+        <SelectContent className="bg-white dark:bg-black dark:text-white">
           <SelectGroup>
             {filters.map((item) => (
               <SelectItem key={item.value} value={item.value}>
