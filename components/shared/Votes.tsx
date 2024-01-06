@@ -1,11 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+
 import { downvoteAnswer, upvoteAnswer } from "@/actions/answer.action";
+import { viewQuestion } from "@/actions/interaction";
 import { downvoteQuestion, upvoteQuestion } from "@/actions/question.action";
 import { toggleSaveQuestions } from "@/actions/user.action";
 import { formatAndDividNumber } from "@/lib/utils";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 
 interface Props {
   type: string;
@@ -28,6 +31,7 @@ export default function Votes({
   hasdownVoted,
   hasSaved,
 }: Props) {
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   const handleSave = async () => {
@@ -81,6 +85,20 @@ export default function Votes({
       }
     }
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (mounted) {
+    viewQuestion({
+      questionId: JSON.parse(itemId),
+      userId: userId ? JSON.parse(userId) : undefined,
+      path: pathname,
+    });
+
+    setMounted(false);
+  }
 
   return (
     <div className="flex gap-5">
