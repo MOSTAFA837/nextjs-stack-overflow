@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import RenderTag from "../shared/RenderTag";
 import Metric from "../shared/Metric";
 import { getTimestamp } from "@/lib/utils";
@@ -64,6 +63,7 @@ export default function QuestionCard({
           isAuthor
           textStyles="body-medium text-dark400_light700"
         />
+
         <div className="flex justify-end gap-5">
           <Metric
             imgUrl="/assets/icons/like.svg"

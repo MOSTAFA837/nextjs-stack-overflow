@@ -49,6 +49,6 @@ export const formatAndDividNumber = (num: number) => {
     const formattedNum = (num / 1000).toFixed(1);
     return `${formattedNum}K`;
   } else {
-    num.toString();
+    return num;
   }
 };
