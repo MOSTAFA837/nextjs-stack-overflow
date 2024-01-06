@@ -2,6 +2,7 @@
 
 import { downvoteAnswer, upvoteAnswer } from "@/actions/answer.action";
 import { downvoteQuestion, upvoteQuestion } from "@/actions/question.action";
+import { toggleSaveQuestions } from "@/actions/user.action";
 import { formatAndDividNumber } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -29,7 +30,13 @@ export default function Votes({
 }: Props) {
   const pathname = usePathname();
 
-  const handleSave = () => {};
+  const handleSave = async () => {
+    await toggleSaveQuestions({
+      userId: JSON.parse(userId),
+      questionId: JSON.parse(itemId),
+      path: pathname,
+    });
+  };
 
   const handleVote = async (action: string) => {
     if (!userId) return;

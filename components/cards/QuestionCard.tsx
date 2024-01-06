@@ -1,7 +1,7 @@
 import Link from "next/link";
 import RenderTag from "../shared/RenderTag";
 import Metric from "../shared/Metric";
-import { getTimestamp } from "@/lib/utils";
+import { formatAndDividNumber, getTimestamp } from "@/lib/utils";
 
 interface Props {
   _id: string;
@@ -15,7 +15,7 @@ interface Props {
     name: string;
     picture: string;
   };
-  upvotes: number;
+  upvotes: string[];
   views: number;
   answers: Array<object>;
   createdAt: Date;
@@ -68,24 +68,21 @@ export default function QuestionCard({
           <Metric
             imgUrl="/assets/icons/like.svg"
             alt="Upvotes"
-            value={upvotes}
-            // value={formatAndDividNumber(upvotes)}
+            value={formatAndDividNumber(upvotes.length)}
             title=" Votes"
             textStyles="small-medium text-dark400_light800"
           />
           <Metric
             imgUrl="/assets/icons/comment.svg"
             alt="messages"
-            // value={formatAndDividNumber(answers.length)}
-            value={answers.length}
+            value={formatAndDividNumber(answers.length)}
             title=" Answers"
             textStyles="small-medium text-dark400_light800"
           />
           <Metric
             imgUrl="/assets/icons/view.svg"
             alt="eye"
-            // value={formatAndDividNumber(views)}
-            value={views}
+            value={formatAndDividNumber(views)}
             title="Views"
             textStyles="small-medium text-dark400_light800"
           />
