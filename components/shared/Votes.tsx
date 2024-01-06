@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import { downvoteAnswer, upvoteAnswer } from "@/actions/answer.action";
 import { viewQuestion } from "@/actions/interaction";
