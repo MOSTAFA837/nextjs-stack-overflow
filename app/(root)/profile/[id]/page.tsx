@@ -88,6 +88,7 @@ export default async function page({ params, searchParams }: URLProps) {
             <TabsTrigger value="top-posts" className="tab">
               Posts
             </TabsTrigger>
+
             <TabsTrigger value="answers" className="tab">
               Answers
             </TabsTrigger>
