@@ -53,9 +53,8 @@ export default function Question({
   const form = useForm<z.infer<typeof QuestionSchema>>({
     resolver: zodResolver(QuestionSchema),
     defaultValues: {
-      title: parsedQuestion && parsedQuestion.title ? parsedQuestion.title : "",
-      explanation:
-        parsedQuestion && parsedQuestion.content ? parsedQuestion.content : "",
+      title: parsedQuestion?.title || "",
+      explanation: parsedQuestion?.content || "",
       tags: questionTags || [],
     },
   });
@@ -172,11 +171,7 @@ export default function Question({
                     // @ts-ignore
                     (editorRef.current = editor)
                   }
-                  initialValue={
-                    parsedQuestion && parsedQuestion.content
-                      ? parsedQuestion.content
-                      : ""
-                  }
+                  initialValue={parsedQuestion?.content || ""}
                   onBlur={field.onBlur}
                   onEditorChange={(content) => field.onChange(content)}
                   init={{
