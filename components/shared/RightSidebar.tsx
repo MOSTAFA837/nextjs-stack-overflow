@@ -2,16 +2,13 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import RenderTag from "./RenderTag";
+import { getHotQuestions } from "@/actions/question.action";
+import { getTopPopularTags } from "@/actions/tag.action";
 
-export const popularTags = [
-  { _id: "1", name: "javascript", totalQuestions: 5 },
-  { _id: "2", name: "react", totalQuestions: 10 },
-  { _id: "3", name: "next", totalQuestions: 3 },
-  { _id: "4", name: "php", totalQuestions: 7 },
-  { _id: "5", name: "laravel", totalQuestions: 6 },
-];
+export default async function RightSidebar() {
+  const hotQuestions = await getHotQuestions();
+  const popularTags = await getTopPopularTags();
 
-export default function RightSidebar() {
   return (
     <div
       className="background-light900_dark200 light-border 
@@ -23,22 +20,25 @@ export default function RightSidebar() {
         <h3 className="h3-bold text-dark200_light900">Top questions</h3>
 
         <div className="mt-7 flex w-full flex-col gap-[30px]">
-          <Link
-            href={`/question/question.id`}
-            className="flex cursor-pointer items-center justify-between gap-7"
-          >
-            <p className="body-medium text-dark500_light700">
-              What is the diffrences in next 14?
-            </p>
+          {hotQuestions?.map((question) => (
+            <Link
+              key={question._id}
+              href={`/question/${question._id}`}
+              className="flex cursor-pointer items-center justify-between gap-7"
+            >
+              <p className="body-medium text-dark500_light700">
+                {question.title}
+              </p>
 
-            <Image
-              src="/assets/icons/arrow-right.svg"
-              alt="right"
-              width={20}
-              height={20}
-              className="invert-colors"
-            />
-          </Link>
+              <Image
+                src="/assets/icons/arrow-right.svg"
+                alt="right"
+                width={20}
+                height={20}
+                className="invert-colors"
+              />
+            </Link>
+          ))}
         </div>
       </div>
 
@@ -51,7 +51,7 @@ export default function RightSidebar() {
               key={tag._id}
               _id={tag._id}
               name={tag.name}
-              totalQuestions={tag.totalQuestions}
+              totalQuestions={tag.numberOfQuestions}
               showCount
             />
           ))}
