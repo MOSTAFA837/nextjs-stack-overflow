@@ -38,7 +38,6 @@ export async function createUser(userData: CreateUserParams) {
     connectToDatabase();
 
     const user = await User.create(userData);
-    console.log(user);
 
     return user;
   } catch (error) {
@@ -257,6 +256,7 @@ export async function getUserQuestions(params: GetUserStatsParams) {
 
     const userQuestions = await Question.find({ author: userId })
       .sort({
+        createdAt: -1,
         views: -1,
         upvotes: -1,
       })
