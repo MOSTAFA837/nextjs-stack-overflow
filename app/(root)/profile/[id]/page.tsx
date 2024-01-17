@@ -49,11 +49,6 @@ export default async function page({ params, searchParams }: URLProps) {
                   title={userInfo.user.location}
                 />
               )}
-
-              {/* <ProfileLink
-                imgUrl="/assets/icons/calender.svg"
-                title={getJoinedDate(userInfo.user.joinedAt)}
-              /> */}
             </div>
 
             {userInfo.user.bio && (
@@ -68,7 +63,7 @@ export default async function page({ params, searchParams }: URLProps) {
           <SignedIn>
             {clerkId === userInfo.user.clerkId && (
               <Link href="/profile/edit">
-                <Button className="paragraph-medium btn-secondary text-dark300_light900 min-h-[46px] min-w-[175px] px-4 py-3">
+                <Button className="paragraph-medium text-dark300_light900 min-h-[46px] min-w-[175px] bg-gray-200 px-4 py-3 dark:bg-dark-400">
                   Edit Profile
                 </Button>
               </Link>
@@ -80,6 +75,8 @@ export default async function page({ params, searchParams }: URLProps) {
       <Stats
         totalQuestions={userInfo.totalQuestions}
         totalAnswers={userInfo.totalAnswers}
+        badges={userInfo.badgeCounts}
+        reputation={userInfo.reputation}
       />
 
       <div className="mt-10 flex gap-10">

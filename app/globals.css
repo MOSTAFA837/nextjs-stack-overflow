@@ -16,7 +16,7 @@ body {
     @apply flex justify-start items-center;
   }
   .card-wrapper {
-    @apply bg-light-900 dark:dark-gradient shadow-light-400;
+    @apply bg-gray-200 dark:dark-gradient shadow-light-400;
   }
   .btn {
     @apply bg-light-800 dark:bg-dark-300 !important;
@@ -27,9 +27,9 @@ body {
   .btn-tertiary {
     @apply bg-light-700 dark:bg-dark-300 !important;
   }
-  .markdown {
+  /* .markdown {
     @apply max-w-full prose dark:prose-p:text-light-700 dark:pros;
-  }
+  } */
   .primary-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
   }

@@ -21,7 +21,7 @@ export async function getQuestions(params: GetQuestionsParams) {
   try {
     connectToDatabase();
 
-    const { searchQuery, filter, page = 1, pageSize = 2 } = params;
+    const { searchQuery, filter, page = 1, pageSize = 8 } = params;
 
     const skip = (page - 1) * pageSize;
 
@@ -46,6 +46,7 @@ export async function getQuestions(params: GetQuestionsParams) {
         break;
 
       default:
+        sortOptions = { createdAt: -1 };
         break;
     }
 

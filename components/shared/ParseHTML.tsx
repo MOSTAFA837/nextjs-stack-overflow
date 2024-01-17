@@ -35,5 +35,9 @@ export default function ParseHTML({ data }: Props) {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
-  return <div className="dark:text-white">{parse(data)}</div>;
+  return (
+    <div className="dark:pros prose max-w-full dark:text-white dark:prose-p:text-light-700">
+      {parse(data)}
+    </div>
+  );
 }

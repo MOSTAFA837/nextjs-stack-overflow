@@ -75,7 +75,7 @@ export default function LocalSearchBar({
         onChange={(e) => {
           setSearch(e.target.value);
         }}
-        className="paragraph-regular background-light800_darkgradient placeholder text-dark400_light700 border-none shadow-none outline-none"
+        className="paragraph-regular text-dark400_light700 placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
       />
 
       {iconPosition === "right" && (

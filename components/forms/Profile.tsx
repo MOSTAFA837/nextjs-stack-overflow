@@ -74,7 +74,7 @@ export default function Profile({ clerkId, user }: Props) {
           control={form.control}
           render={({ field }) => (
             <FormItem className="space-y-3.5">
-              <FormLabel>
+              <FormLabel className="paragraph-semibold text-dark400_light800">
                 Name
                 <span className="text-primary-500">*</span>
               </FormLabel>
@@ -82,7 +82,7 @@ export default function Profile({ clerkId, user }: Props) {
               <FormControl>
                 <Input
                   placeholder="Your Name.."
-                  className="no-focus paragraph-regular light-border-2 abckground-light700_dark300 text-dark300_light700 min-h-[56px] border"
+                  className="no-focus paragraph-regular light-border-2 background-light700_dark300 text-dark300_light700 min-h-[56px] border"
                   {...field}
                 />
               </FormControl>
@@ -97,7 +97,7 @@ export default function Profile({ clerkId, user }: Props) {
           control={form.control}
           render={({ field }) => (
             <FormItem className="space-y-3.5">
-              <FormLabel>
+              <FormLabel className="paragraph-semibold text-dark400_light800">
                 Username
                 <span className="text-primary-500">*</span>
               </FormLabel>
@@ -105,7 +105,7 @@ export default function Profile({ clerkId, user }: Props) {
               <FormControl>
                 <Input
                   placeholder="Your Username.."
-                  className="no-focus paragraph-regular light-border-2 abckground-light700_dark300 text-dark300_light700 min-h-[56px] border"
+                  className=" paragraph-regular light-border-2 background-light700_dark300 text-dark300_light700 min-h-[56px] border"
                   {...field}
                 />
               </FormControl>
@@ -120,13 +120,15 @@ export default function Profile({ clerkId, user }: Props) {
           name="portfolioWebsite"
           render={({ field }) => (
             <FormItem className="space-y-3.5">
-              <FormLabel>Portfolio Link</FormLabel>
+              <FormLabel className="paragraph-semibold text-dark400_light800">
+                Portfolio Link
+              </FormLabel>
 
               <FormControl>
                 <Input
                   type="url"
                   placeholder="Your Portfolio URL.."
-                  className="no-focus paragraph-regular light-border-2 abckground-light700_dark300 text-dark300_light700 min-h-[56px] border"
+                  className="background-light700_dark300 paragraph-regular light-border-2 text-dark300_light700 min-h-[56px] border"
                   {...field}
                 />
               </FormControl>
@@ -141,12 +143,14 @@ export default function Profile({ clerkId, user }: Props) {
           name="location"
           render={({ field }) => (
             <FormItem className="space-y-3.5">
-              <FormLabel>Location</FormLabel>
+              <FormLabel className="paragraph-semibold text-dark400_light800">
+                Location
+              </FormLabel>
 
               <FormControl>
                 <Input
                   placeholder="Where are you from.."
-                  className="no-focus paragraph-regular light-border-2 abckground-light700_dark300 text-dark300_light700 min-h-[56px] border"
+                  className=" paragraph-regular light-border-2 background-light700_dark300 text-dark300_light700 min-h-[56px] border"
                   {...field}
                 />
               </FormControl>
@@ -161,12 +165,14 @@ export default function Profile({ clerkId, user }: Props) {
           name="bio"
           render={({ field }) => (
             <FormItem className="space-y-3.5">
-              <FormLabel>Location</FormLabel>
+              <FormLabel className="paragraph-semibold text-dark400_light800">
+                Location
+              </FormLabel>
 
               <FormControl>
                 <Textarea
                   placeholder="What's special about you?"
-                  className="no-focus paragraph-regular light-border-2 abckground-light700_dark300 text-dark300_light700 min-h-[56px] border"
+                  className="paragraph-regular light-border-2 background-light700_dark300 text-dark300_light700 min-h-[56px] border"
                   {...field}
                 />
               </FormControl>
@@ -177,7 +183,10 @@ export default function Profile({ clerkId, user }: Props) {
         />
 
         <div className="mt-7 flex justify-end">
-          <Button type="submit" className="primary-gradient w-fit">
+          <Button
+            type="submit"
+            className="primary-gradient w-fit dark:text-light-800"
+          >
             {isSubmitting ? "Saving..." : "Save"}
           </Button>
         </div>

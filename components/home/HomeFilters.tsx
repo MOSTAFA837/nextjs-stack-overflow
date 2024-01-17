@@ -42,8 +42,8 @@ export default function HomeFilters() {
           onClick={() => handleTypeClick(item.value)}
           className={`body-medium rounded-lg px-6 py-3 capitalize shadow-none ${
             active === item.value
-              ? "bg-primary-100 text-primary-500"
-              : "bg-light-800 text-light-500"
+              ? "bg-primary-500/20 text-primary-500 dark:bg-primary-500/90 dark:text-white"
+              : "bg-light-700 text-light-500 dark:bg-black/50 dark:text-light-500"
           }`}
         >
           {item.name}
